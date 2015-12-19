@@ -1,7 +1,7 @@
 # Site settings
-title: How is Beijing's Air Condition?
-description: > # Beijing's Air Condition ( AQI )
-baseurl: "http://yangwang.info/HowIsBeijing-sSmog" # the subpath of your site, e.g. /blog/
+title: How is the smog right now?
+description: > # How is the smog in Beijing right now?
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
 # Build settings
