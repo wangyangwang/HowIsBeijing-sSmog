@@ -117,7 +117,7 @@ function render() {
 function setFog() {
     if (currentAQI != undefined) {
       if(currentAQI>0 && currentAQI < 40){
-          fogFar = p5.prototype.map(currentAQI, 0, 40, 25, 50);
+          fogFar = p5.prototype.map(currentAQI, 0, 40, 30, 50);
           fogNear = -100;
           bgColor = smogColor;
       }else if(currentAQI >= 40 && currentAQI <= 80){
