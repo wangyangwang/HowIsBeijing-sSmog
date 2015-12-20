@@ -138,6 +138,6 @@ function setFog() {
 }
 
 function fogOscillate(){
-  scene.fog.far = fogFar + p5.prototype.map(p5.prototype.noise(fogOscillateNoiseIndex), 0, 1, -15, 15);
+  scene.fog.far = fogFar + p5.prototype.map(p5.prototype.noise(fogOscillateNoiseIndex), 0, 1, -10, 10);
   fogOscillateNoiseIndex+=0.008;
 }
