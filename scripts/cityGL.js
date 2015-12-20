@@ -26,6 +26,7 @@ loader.load('dae/combo/cctv+buildings.dae', function(collada) {
     
     init();
     animate();
+    document.getElementsByTagName("h2")[0].innerHTML = "";
 
 });
 
