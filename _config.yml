@@ -1,6 +1,7 @@
 # Site settings
-title: How is the smog right now?
-description: > # How is the smog in Beijing right now?
+title: HOW IS THE AIR IN BEIJING NOW?
+description: > # HOW IS THE AIR IN BEIJING NOW?
+author: Yang Wang
 baseurl: "/HowIsBeijing-sSmog" # the subpath of your site, e.g. /blog/
 url: "http://yangwang.info" # the base hostname & protocol for your site
 
