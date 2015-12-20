@@ -116,7 +116,7 @@ function render() {
 function setFog() {
     if (currentAQI != undefined) {
       if(currentAQI>0 && currentAQI < 40){
-          fogFar = p5.prototype.map(currentAQI, 0, 40, 20, 50);
+          fogFar = p5.prototype.map(currentAQI, 0, 40, 25, 50);
           fogNear = -100;
           bgColor = smogColor;
       }else if(currentAQI >= 40 && currentAQI <= 80){
@@ -128,7 +128,6 @@ function setFog() {
           fogNear = p5.prototype.map(currentAQI, 80, 100, -100, 10);
           var tempColor1 = new THREE.Color("#B9B9B9");
           bgColor = tempColor1.lerp(blueSkyColor,p5.prototype.map(currentAQI,80,100,0,1));
-          // console.log(bgColor);
       }
       scene.fog.far = fogFar;
       scene.fog.near = fogNear;

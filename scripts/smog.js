@@ -1,12 +1,13 @@
 var particles = [];
 var beijingImage;
+var canvasObj;
 
 //Class Particle
 var Particle = function(pos){
 	this.size = 3;
 	this.position = pos;
 	this.rotation = random(0,TWO_PI);
-	this.img = loadImage("texture/smoke.png");
+	this.img = loadImage("../texture/smoke.png");
 }
 
 Particle.prototype.move = function() {
@@ -24,21 +25,16 @@ Particle.prototype.display = function(){
 //main thread
 function setup(){
 	beijingImage = document.getElementById('beijingpicture');
-
-	if(!Modernizr.webgl){
-		createCanvas(window.innerWidth,window.innerHeight);
-	}else{
-		noLoop();
-		document.getElementsByTagName('body')[0].removeChild(beijingImage);
-	}
+	canvasObj = createCanvas(window.innerWidth,window.innerHeight);
+	canvasObj.elt.style.zIndex = 2;
 }
 
 
 function draw(){
-	if(!Modernizr.webgl){
+
 		clear();
 
-		var ParticleNumber = map(currentAQI,0,100,10,0);
+		var ParticleNumber = map(currentAQI,0,100,40,0);
 
 		if(particles.length > ParticleNumber){
 			particles.pop();
@@ -46,8 +42,7 @@ function draw(){
 			particles.push(new Particle(createVector(random(0,windowWidth),random(0,windowHeight),random(0,500))));
 		}
 
-		// fill(0,map(currentAQI,0,100,255,0));
-		fill(150,map(currentAQI,0,100,220,0));
+		fill(150, map(currentAQI,0,100,230,0));
 		rect(0,0,windowWidth,windowHeight);
 
 		//css filters
@@ -58,13 +53,12 @@ function draw(){
 			particles[i].display();
 			particles[i].move();
 		};
-	}
 }
 
 function windowResized(){
-	if(!Modernizr.webgl){
-		resizeCanvas(window.innerWidth,window.innerHeight);
-	}
+
+	resizeCanvas(window.innerWidth,window.innerHeight);
+
 }
 
 
