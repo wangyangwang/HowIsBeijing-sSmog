@@ -117,18 +117,22 @@ function render() {
 function setFog() {
     if (currentAQI != undefined) {
       if(currentAQI>0 && currentAQI < 40){
-          fogFar = p5.prototype.map(currentAQI, 0, 40, 30, 50);
+          fogFar = p5.prototype.map(currentAQI, 0, 40, 40, 60);
           fogNear = -100;
           bgColor = smogColor;
       }else if(currentAQI >= 40 && currentAQI <= 80){
-          fogFar = p5.prototype.map(currentAQI, 40, 80, 50, 140);
+          fogFar = p5.prototype.map(currentAQI, 40, 80, 60, 150);
           fogNear = -100;
-          bgColor = smogColor;
+          if(currentAQI < 65){
+            bgColor = smogColor;
+          }else{
+            var tempColor1 = new THREE.Color("#B9B9B9");
+            bgColor = tempColor1.lerp(blueSkyColor,p5.prototype.map(currentAQI,65,80,0,1));
+          }
       }else if(currentAQI >80 && currentAQI <= 100){
-          fogFar = p5.prototype.map(currentAQI, 80, 100, 140, 160);
+          fogFar = p5.prototype.map(currentAQI, 80, 100, 150, 160);
           fogNear = p5.prototype.map(currentAQI, 80, 100, -100, 10);
-          var tempColor1 = new THREE.Color("#B9B9B9");
-          bgColor = tempColor1.lerp(blueSkyColor,p5.prototype.map(currentAQI,80,100,0,1));
+          bgColor = new THREE.Color("#B9B9B9");;
       }
       scene.fog.far = fogFar;
       scene.fog.near = fogNear;
